@@ -13,15 +13,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "connect-pg-simple": "^10.0.0",
     "crypto": "^1.0.1",
     "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
     "express": "^4.21.0",
     "express-session": "^1.18.0",
+    "lucide-react": "^0.446.0",
     "node-pg-migrate": "^7.6.1",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "pg": "^8.13.0",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7",
     "uuid": "^10.0.0"
   },
   "devDependencies": {

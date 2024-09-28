@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <% if (user) {%>
+    <h1>Welcome back <%= user.firstName + ' ' + user.lastName %></h1>
+    <a href="/secret-code">View posts</a>
+    <a href="/logout">Log out</a>
+  <% } else { %>
+    <h1>Please log in</h1>
+    <form action="login" method="POST">
+      <label for="username">Username</label>
+      <input id="username" name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" />
+      <button>Log in</button>
+    </form>
+    <a href="/register"><button>Register</button></a>
+  <%}%>
+</body>
+</html>
