@@ -110,12 +110,8 @@ router.post('/new-message', isAuth, async (req, res) => {
   }
 });
 
-router.post('/delete-message/:id', isAuth, async (req, res) => {
+router.post('/delete-message/:id', isAdmin, async (req, res) => {
   const messageId = req.params.id;
-
-  if (!req.user.admin) {
-    return res.status(403).send('You are not authorized to delete this message.');
-  }
 
   try {
     await db.query('DELETE FROM messages_members_only WHERE id = $1', [messageId]);
