@@ -2,13 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>Home</title>
 </head>
 <body>
   <% if (user) {%>
     <h1>Welcome back <%= user.firstName + ' ' + user.lastName %></h1>
-    <a href="/secret-code">View posts</a>
+    <a href="/new-message">Create a new message</a>
     <a href="/logout">Log out</a>
+
+    <h2>Messages</h2>
+    <ul>
+      <% messages.forEach(message => { %>
+        <li>
+          <strong><%= message.title %></strong><br>
+          <%= message.content %><br>
+          <% if (isAuthorized) { %>
+            <small>By <%= message.firstName + ' ' + message.lastName %> on <%= new Date(message.createdAt).toLocaleString() %></small>
+            <% if (user.admin) { %> 
+              <form action="/delete-message/<%= message.id %>" method="POST">
+                <button type="submit">Delete</button>
+              </form>
+            <% } %>
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
   <% } else { %>
     <h1>Please log in</h1>
     <form action="login" method="POST">
@@ -19,6 +37,6 @@
       <button>Log in</button>
     </form>
     <a href="/register"><button>Register</button></a>
-  <%}%>
+  <% } %>
 </body>
 </html>
